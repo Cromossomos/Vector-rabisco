@@ -3,18 +3,31 @@ package main
  import "fmt"
  
  func main() {
- var numeros[5]int
- var soma int
+	age := 45
+	fmt.Println(age <= 50)
+	fmt.Println(age >= 50)
+	fmt.Println(age == 50)
+	fmt.Println(age != 50)
 
- fmt.Print("digite um numero inteiros, ")
+	if age < 30 {
+		fmt.Println("Menor que 30 anos")
+	} else if age < 40 {
+		fmt.Println("Menor que 40 anos")
+	} else {
+		fmt.Println("Não é menor que 40 anos")
+	}
 
- for i := 0; i < 5; i++ {
-	fmt.Printf("Número %d: ", i+1)
-	fmt.Scan(&numeros[i])
-	soma += numeros[i]
+	names := []string{"Kaiser", "Balu", "Ivete", "Dante", "Arthur", "Joui"}
 
+	for index, value := range names {
+		if index == 1 {
+			fmt.Println("Continue pós a posição", index, "e valor", value)
+			continue
+		}
+		if index > 2 {
+			fmt.Println("Sair após", index)
+			break
+		}
+		fmt.Println("Valor: ", value)
+	}
  }
-
-fmt.Printf("a soma dos numeros é %d", soma)
-
-  }
