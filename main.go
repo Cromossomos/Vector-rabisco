@@ -1,26 +1,20 @@
 package main
+ 
+ import "fmt"
+ 
+ func main() {
+ var numeros[5]int
+ var soma int
 
-import (
-"fmt" 
-"strings"
-"sort"
-)
-func main(){
+ fmt.Print("digite um numero inteiros, ")
 
-	greeting := "Opa meu amigos"
-	fmt.Println(strings.Contains(greeting, "amigos"))
-	fmt.Println(strings.ReplaceAll(greeting, "Opa", "Oi"))
-	fmt.Println(strings.ToUpper(greeting))
-	fmt.Println(strings.Index(greeting, "meu"))
-	fmt.Println(strings.Split(greeting, "amigos"))
-	ages := []int {50, 80, 10}
-	sort.Ints(ages)
-	fmt.Println(ages)
-	index := sort.SearchInts(ages, 50)
-	fmt.Println(index)
-	names := []string{"Caroline", "Maicon", "Diego"}
-	sort.Strings(names)
-	fmt.Println(names)
-	fmt.Println(sort.SearchStrings(names, "Caroline"))
-	
-}
+ for i := 0; i < 5; i++ {
+	fmt.Printf("Número %d: ", i+1)
+	fmt.Scan(&numeros[i])
+	soma += numeros[i]
+
+ }
+
+fmt.Printf("a soma dos numeros é %d", soma)
+
+  }
