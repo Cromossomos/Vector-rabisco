@@ -2,37 +2,32 @@ package main
 
 import ("fmt")
 
+func dividir (dividendo int, divisor int) (int, string){
+	if divisor == 0 {
+		return 0, "Erro na divisão pro zero"
+	}
+	return dividendo / divisor, "Sem erro"
+}
+func oreracaoBasica(a int, b int) (int, int, int){
+	soma := a + b
+	multiplicacao := a * b
+	subtracao := a - b
+
+	return soma, multiplicacao, subtracao
+}
+
 func main(){
-var saldo int 
-var numero int
-var escolha int
+	resultado, erro := dividir(10,2)
 
-fmt.Print("Insira o valor que você gostaria de sacar: ")
-fmt.Scan(&saldo)
+	if erro != "Sem erro" {
+		fmt.Println(erro)
+	} else {
+		fmt.Println("O resultado da divisão é: ", resultado)
+	}
 
-    fmt.Println("Escolha uma opção:")
-    fmt.Println("1 - Sacar")
-    fmt.Println("2 - Depositar")
-    fmt.Print("Opção: ")
-    fmt.Scan(&escolha)
+	soma, mult, sub := oreracaoBasica(10,2)
+	fmt.Println(soma)
+	fmt.Println(mult)
+	fmt.Println(sub)
 
-    if escolha == 1 {
-        fmt.Print("Insira o valor que você gostaria de sacar: ")
-        fmt.Scan(&numero)
-        if numero > saldo {
-            fmt.Println("Saldo insuficiente.")
-        } else {
-            saldo -= numero
-            fmt.Println("Saque realizado com sucesso!")
-        }
-    } else if escolha == 2 {
-        fmt.Print("Insira o valor que você gostaria de depositar: ")
-        fmt.Scan(&numero)
-        saldo += numero
-        fmt.Println("Depósito realizado com sucesso!")
-    } else {
-        fmt.Println("Opção inválida.")
-    }
-
-    fmt.Println("Saldo atual:", saldo)
 }
