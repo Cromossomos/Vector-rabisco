@@ -1,18 +1,29 @@
 package main
- 
- import "fmt"
- 
- func dadosPessoa(nome string, idade int) (int, string){
-	if idade >= 18{
-		return idade, "Maior de idade"
-	}
-	return idade, "Menor de idade"
- }
 
- func main() {
-	nome := "Cesinha"
-	idade := 16
+import "fmt"
 
-	idadeRetornada, status := dadosPessoa(nome, idade)
-	fmt.Printf("Nome: %s\nIdade: %d\nStatus: %s\n", nome, idadeRetornada, status)
- }
+var nota1 float64
+var nota2 float64
+var media float64
+
+func analisarNotas (nota1, nota2 float64) (float64, string) {
+    media = (nota1 + nota2) / 2
+    if media < 0 || media > 10 {
+        fmt.Println("Nota inválida!")
+    } else if media >= 6 {
+        return media, "Aprovado"
+    } else if media < 6 {
+        return media, "Reprovado"
+    } 
+    return media, "invalido"
+}
+
+func main (){
+    fmt.Println("Digite a primeira nota:")
+    fmt.Scanln(&nota1)
+    fmt.Println("Digite a segunda nota:")
+    fmt.Scanln(&nota2)
+    media, resultado := analisarNotas(nota1, nota2)
+    fmt.Printf("A média é: %.2f\n", media)
+    fmt.Println("Resultado:", resultado)
+    }
